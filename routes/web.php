@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin','AdminController@admin');
+
+Route::get('/crearpaciente','AdminController@formularioPaciente');
+Route::post('/crearPaciente','PatientController@crearPaciente');
+
+Route::get('/editarpaciente/{id}','PatientController@editarpaciente');
+Route::post('/editarpaciente','PatientController@updatePaciente');
+
+
