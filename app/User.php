@@ -27,5 +27,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    //retornamos el tipo de usuario
+    public function tipoUser(){
+        switch ($this->profile) {
+            case '1':
+                return "Administrador";
+                break;
+            case '2':
+                return "Director";
+                break;
+            case '3':
+                return "Secretaria";
+                break;
+            
+            default:
+                return "Anonimo";
+                break;
+        }
+    }
+
     
 }

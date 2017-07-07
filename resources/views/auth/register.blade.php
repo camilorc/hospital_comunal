@@ -61,11 +61,19 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('profile') ? ' has-error' : '' }}">
-                            <label for="profile" class="col-md-4 control-label">Profile</label>
+                            <label for="profile" class="col-md-4 control-label">Tipo de Perfil:</label>
 
                             <div class="col-md-6">
-                                <input id="profile" type="text" class="form-control" name="profile" value="{{ old('profile') }}" required>
 
+                                <div class="form-group">
+                                  
+                                  <select class="form-control" id="profile" name="profile" value="{{ old('profile') }}" required>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Director</option>
+                                    <option value="3">Secretaria</option>
+                                    
+                                  </select>
+                                </div>
                                 @if ($errors->has('profile'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('profile') }}</strong>
