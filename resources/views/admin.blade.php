@@ -30,7 +30,15 @@
 			  		<th>{{ $paciente->name }}</th> 
 			  		<th>{{ $paciente->direccion }}</th>
 			  		<th><a class="btn btn-success" href="/editarpaciente/{{$paciente->id}}" role="button">Editar</a></th> 
-			  		<th><a class="btn btn-danger" href="/editarpaciente/{{$paciente->id}}" role="button">Eliminar</a></th>  
+			  		<th>
+
+					{{Form::open(['url' => 'eliminarPaciente', 'method' => 'post', 'class' => 'form-horizontal'])}}
+					{{Form::hidden('idPaciente',$paciente->id)}}
+			  		
+
+			  		{{Form::submit('Eliminar',['class' => 'btn btn-danger']) }}
+					{{Form::close() }}
+			  		</th>  
 	  			</tr> 
 			
 			@endforeach
@@ -65,7 +73,14 @@
 			  		<th>{{ $doctor->especialidad }}</th>
 			  		<th>{{ $doctor->valor_consulta }}</th> 
 			  		<th><a class="btn btn-success" href="/editardoctor/{{$doctor->id}}" role="button">Editar</a></th>  
-			  		<th><a class="btn btn-danger" href="/editarpaciente/{{$paciente->id}}" role="button">Eliminar</a></th> 
+			  		<th>
+			  		{{Form::open(['url' => 'eliminarDoctor', 'method' => 'post', 'class' => 'form-horizontal'])}}
+					{{Form::hidden('idDoctor',$doctor->id)}}
+				  		
+
+				  	{{Form::submit('Eliminar',['class' => 'btn btn-danger']) }}
+					{{Form::close() }}
+			  		</th> 
 	  			</tr> 
 			
 			@endforeach
@@ -94,7 +109,14 @@
 			  		<th>{{ $user->email }}</th> 
 			  		<th>{{ $user->tipoUser() }}</th> 
 		  		
-			  		<th><a class="btn btn-danger" href="/editardoctor/{{$user->id}}" role="button">Eliminar</a></th>  
+			  		<th>
+			  		{{Form::open(['url' => 'eliminarUsuario', 'method' => 'post', 'class' => 'form-horizontal'])}}
+					{{Form::hidden('idUsuario',$user->id)}}
+				  		
+
+				  	{{Form::submit('Eliminar',['class' => 'btn btn-danger']) }}
+					{{Form::close() }}
+			  		</th>  
 			  		
 	  			</tr> 
 			

@@ -46,4 +46,11 @@ class DoctorController extends Controller
     	}
 
     }
+
+    public function eliminarDoctor(Request $datos){
+            $doctor = (new Doctor)->find($datos->input('idDoctor'));;
+            if($doctor->delete()){
+                return 'Doctor eliminado';
+            };
+    }
 }

@@ -49,6 +49,13 @@ class SecretariaController extends Controller
     }
 
     public function cambiarEstado(Request $dato){
+       $atencion = (new Attention)->find($dato->input('id'));
+       $atencion->estado = $dato->input('estado');
+
+       if($atencion->save()){
+            return "Estado cambiado";
+       }
+
        
     }
 }

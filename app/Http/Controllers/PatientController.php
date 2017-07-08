@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Patient;
 
+
 class PatientController extends Controller
 {
     //creamos un Patient
@@ -47,6 +48,20 @@ class PatientController extends Controller
 
 
     }
+
+    public function eliminarPaciente(Request $datos){
+            $paciente = (new Patient)->find($datos->input('idPaciente'));;
+            if($paciente->delete()){
+                return 'Paciente eliminado';
+            };
+    }
+
+
+    public function pacienteIndex(){
+        return view('paciente');
+    }
+
+    
 
     
 }

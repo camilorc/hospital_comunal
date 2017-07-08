@@ -33,4 +33,9 @@ class Attention extends Model
 
 
     }
+
+    public function scopeAtenciones($query,$patient_id){
+        $query->where('patient_id',$patient_id);
+
+    }
 }

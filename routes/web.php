@@ -23,6 +23,7 @@ Route::get('/admin','AdminController@admin');
 
 Route::get('/crearpaciente','AdminController@formularioPaciente');
 Route::post('/crearPaciente','PatientController@crearPaciente');
+Route::post('/eliminarPaciente','PatientController@eliminarPaciente');
 
 Route::get('/editarpaciente/{id}','PatientController@editarpaciente');
 Route::post('/editarpaciente','PatientController@updatePaciente');
@@ -32,6 +33,9 @@ Route::post('/crearDoctor','DoctorController@crearDoctor');
 
 Route::get('/editardoctor/{id}','DoctorController@editarDoctor');
 Route::post('/editardoctor','DoctorController@updateDoctor');
+Route::post('/eliminarDoctor','DoctorController@eliminarDoctor');
+
+Route::post('/eliminarUsuario','UserController@eliminarUsuario');
 
 Route::get('/director','DirectorController@directorIndex');
 
@@ -39,6 +43,13 @@ Route::get('/secretaria','SecretariaController@secretariaIndex');
 Route::get('/agendaratencion/{id}','SecretariaController@formularioAgendar');
 Route::post('/agendaratencion','SecretariaController@agendar');
 
+Route::get('/editaratencion/{id}','SecretariaController@editarAtencion');
 Route::post('/editarEstado','SecretariaController@cambiarEstado');
+
+Route::get('/paciente','PatientController@pacienteIndex');
+
+Route::get('buscarAtenciones', ['as' => 'buscarAtenciones', 'uses' => 'AttentionController@listarAtenciones']);
+
+
 
 
