@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
+	
+	<a class="btn btn-primary" href="/estadisticas" role="button">Estadísticas</a>
 
 	@if(count($pacientes) == 0)
 		<h1>No existen Pacientes creados</h1>

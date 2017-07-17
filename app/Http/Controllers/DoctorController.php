@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Doctor;
+use App\Http\Requests\DoctorRequest;
 
 class DoctorController extends Controller
 {
     //creamos un Patient
-    public function crearDoctor(Request $datos){
+    public function crearDoctor(DoctorRequest $datos){
     	$doctor = new Doctor();
     	$doctor->rut = $datos->input('rut');
     	$doctor->name = $datos->input('name');
@@ -33,7 +34,7 @@ class DoctorController extends Controller
     	return view('editardoctor',compact('doctor'));
     }
 
-    public function updateDoctor(Request $datos){
+    public function updateDoctor(DoctorRequest $datos){
     	$doctor = (new Doctor)->find($datos->input('id'));
     	$doctor->rut = $datos->input('rut');
     	$doctor->name = $datos->input('name');

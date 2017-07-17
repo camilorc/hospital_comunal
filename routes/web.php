@@ -50,6 +50,6 @@ Route::get('/paciente','PatientController@pacienteIndex');
 
 Route::get('buscarAtenciones', ['as' => 'buscarAtenciones', 'uses' => 'AttentionController@listarAtenciones']);
 
-
+Route::get('/estadisticas','EstadisticasController@index');
 
 

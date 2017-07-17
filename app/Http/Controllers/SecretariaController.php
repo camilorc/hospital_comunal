@@ -6,6 +6,7 @@ use App\Patient;
 use App\Doctor;
 use App\Attention;
 use Illuminate\Http\Request;
+use App\Http\Requests\AgendarRequest;
 
 class SecretariaController extends Controller
 {
@@ -28,7 +29,7 @@ class SecretariaController extends Controller
     	return view('agendaratencion',compact(['paciente','doctores']));
     }
 
-    public function agendar(Request $datos){
+    public function agendar(AgendarRequest $datos){
     	$atencion = new Attention();
     	$atencion->fecha_hora_atencion = $datos->input('fecha_hora_atencion');
     	$atencion->patient_id = $datos->input('idPaciente');
