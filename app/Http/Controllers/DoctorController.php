@@ -8,7 +8,7 @@ use App\Http\Requests\DoctorRequest;
 
 class DoctorController extends Controller
 {
-    //creamos un Patient
+    //creamos un Doctor
     public function crearDoctor(DoctorRequest $datos){
     	$doctor = new Doctor();
     	$doctor->rut = $datos->input('rut');
@@ -19,7 +19,7 @@ class DoctorController extends Controller
     	
 
     	if($doctor->save()){
-    		return "Exito";
+    		return redirect('/admin');
     	}
 
     }
@@ -43,7 +43,7 @@ class DoctorController extends Controller
     	$doctor->valor_consulta = $datos->input('valor_consulta');
 
     	if($doctor->save()){
-    		return "Exito Editado";
+    		return redirect('/admin');
     	}
 
     }
@@ -51,7 +51,7 @@ class DoctorController extends Controller
     public function eliminarDoctor(Request $datos){
             $doctor = (new Doctor)->find($datos->input('idDoctor'));;
             if($doctor->delete()){
-                return 'Doctor eliminado';
+                return redirect('/admin');
             };
     }
 }

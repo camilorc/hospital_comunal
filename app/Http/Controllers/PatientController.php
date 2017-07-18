@@ -20,7 +20,7 @@ class PatientController extends Controller
     	
 
     	if($paciente->save()){
-    		return "Exito";
+    		return redirect('/admin');
     	}
 
 
@@ -43,7 +43,7 @@ class PatientController extends Controller
         
 
         if($paciente->save()){
-            return "Exito";
+            return redirect('/admin');
         }
 
 
@@ -53,7 +53,7 @@ class PatientController extends Controller
     public function eliminarPaciente(Request $datos){
             $paciente = (new Patient)->find($datos->input('idPaciente'));;
             if($paciente->delete()){
-                return 'Paciente eliminado';
+                return redirect('/admin');
             };
     }
 

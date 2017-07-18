@@ -11,7 +11,7 @@ Estadisticas
 	  		<thead> 
 	  		<tr> 
 		  		<th>#</th> 
-		  		<th>Fecha y hora atención</th> 
+		  		<th>Fecha</th> 
 		  		<th>Especialidad</th>
 		  		<th>Nombre Doctor</th>
 		  		<th>Estado consulta</th>
@@ -25,7 +25,7 @@ Estadisticas
 			@foreach($atenciones as $atencion)
 				<tr> 
 			  		<th>{{ $atencion->id }}</th> 
-			  		<th>{{ $atencion->fecha_hora_atencion }}</th> 
+			  		<th>{{ Carbon\Carbon::parse($atencion->fecha_hora_atencion)->format('d-m-Y')}}</th> 
 			  		<th>{{ $atencion->especialidad }}</th> 
 			  		<th>{{ $atencion->name }}</th> 
 			  		<th>{{ $atencion->estado }}</th> 

@@ -10,7 +10,7 @@
 	  		<thead> 
 	  		<tr> 
 		  		<th>#</th> 
-		  		<th>Fecha y Hora</th> 
+		  		<th>Fecha</th> 
 		  		<th>Nombre Paciente</th> 
 		  		<th>Nombre Doctor</th>
 		  		<th>Estado</th>
@@ -21,7 +21,7 @@
 			@foreach($atenciones as $atencion)
 				<tr> 
 			  		<th>{{ $atencion->id }}</th> 
-			  		<th>{{ $atencion->fecha_hora_atencion }}</th> 
+			  		<th>{{ Carbon\Carbon::parse($atencion->fecha_hora_atencion)->format('d-m-Y')  }}</th> 
 			  		<th>{{ $atencion->obtenerPaciente() }}</th> 
 			  		<th>{{ $atencion->obtenerDoctor() }}</th>
 			  		<th>{{ $atencion->estado }}</th>

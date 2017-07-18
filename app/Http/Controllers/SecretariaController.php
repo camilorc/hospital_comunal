@@ -37,7 +37,7 @@ class SecretariaController extends Controller
     	$atencion->estado = 'agendada';
 
     	if($atencion->save()){
-    		return "Atención Agendada";
+    		return redirect('/secretaria');
     	}
 
 
@@ -54,7 +54,7 @@ class SecretariaController extends Controller
        $atencion->estado = $dato->input('estado');
 
        if($atencion->save()){
-            return "Estado cambiado";
+            return redirect('/secretaria');
        }
 
        
